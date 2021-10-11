@@ -1,14 +1,16 @@
 import React from "react";
-import logo from './logoo.png'
+import logo from './logoo.png';
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Box from '@mui/material/Box';
+
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import './account.css'
-import logotwo from './account (1).svg'
+import './account.css';
+import logotwo from './account (1).svg';
+import signup from '../Signup/signup';
+
 
 
 function Account() {
@@ -16,7 +18,18 @@ function Account() {
     <div class = "Main">
         <div class = "left">
             
-            <img src = {logo} className = "fundologo"></img>
+        <div className = "fundologo">
+        <h1>
+        <span class="blue">F</span>
+        <span class="red">u</span>
+        <span class="yellow">n</span>
+        <span class="blue">d</span>
+        <span class="green">o</span>
+        <span class="red">o</span>
+      
+        </h1>
+              
+        </div>
           
             <div class="heading">Create Your Fundoo Account</div>
             <div class="subhead">Continue to fundoo</div>
@@ -45,7 +58,7 @@ function Account() {
 
             <Stack spacing={35} direction="row" sx={{ ml: 5, mb:5 }} >
                 <p>Sign in instead</p>
-                <Button variant="contained"  sx={{ height:'5ch' }}>Next</Button>
+                <Button variant="contained"  sx={{ height:'5ch' }} >Next</Button>
             </Stack>
         </div>
             <div class ="right">

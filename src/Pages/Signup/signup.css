@@ -1,0 +1,80 @@
+.fundologoo{
+  margin-left: 40%;
+  margin-top: 2rem;
+  height: 5vh;
+  width: 10vw;
+ 
+  margin-bottom: 2%;
+}
+  
+
+  .div1{
+    border: 1px solid #dadcdf;
+    width: 500px;
+    margin-left: 500px;
+    margin-top: 70px;
+    padding-top: 30px;
+    padding-bottom: 70px;
+
+}
+
+#p1{
+    margin-left: 40%;
+    font-size: 32px;
+    margin-top: 15px;
+    margin-bottom: 17px;
+}
+#p2{
+    margin-left: 150px;
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+
+
+#a1{
+   
+    text-decoration: none;
+    margin-top: 20%;
+    font-weight: bold;
+    color: #1a73e8;
+}
+#p3{
+    font-size: 18px;
+    margin-left: 5%;
+    margin-top: 57px;
+    opacity: 0.8;
+    margin-bottom: 3px;
+}
+#a2{
+    font-size: 19px;
+    text-decoration: none;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #1676f3;
+}
+#a3{
+    font-size: 19px;
+    text-decoration: none;
+    margin-left: 50px;
+    color: #1676f3;
+    font-weight: bold;
+}
+
+
+.p3{
+  font-size: 16px;
+  color: #5f6368;
+  line-height: 20px;
+  font-weight: 400;
+  margin-left: 5%;
+  margin-top: 10%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.p7{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: blue;
+}
