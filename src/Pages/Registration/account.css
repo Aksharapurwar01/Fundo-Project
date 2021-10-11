@@ -1,0 +1,130 @@
+.fundologo {
+    margin-left: 5%;
+    margin-top: 2rem;
+    height: 5vh;
+    width: 10vw;
+   
+    display: flex;
+  
+  }
+  
+  .AppDiv {
+  
+    height: 90vh;
+    width: 75vw;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    border-color: grey;
+  }
+  
+  .Main {
+  
+    height: 100%;
+    width: 60vw;
+    margin-left: 20%;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 2%;
+    border: lightgray 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+   
+  }
+
+  .left{
+      flex: 80%;
+      flex-direction: column;
+    
+  }
+
+  .right{
+
+    flex: 20%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+  }
+  
+  .heading {
+    margin-left: 5%;
+    font-size: 1.5rem;
+    line-height: 4rem;
+  }
+  
+  .subhead {
+    margin-left: 5%;
+    font-size: 1rem;
+  }
+  
+  .name {
+    margin-left: 5%;
+    margin-top: 5%;
+  
+  }
+  
+  .User-Name {
+    margin-left: 5%;
+    margin-top: 4%;
+  
+  }
+  
+  .credentials {
+  
+    margin-left: 5%;
+    margin-top: 4%;
+  }
+  
+  .bottom-text {
+    margin-left: 5%;
+  }
+  
+  .checkbox {
+  
+    margin-left: 5%;
+    margin-top: 1%;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  
+  }
+  
+  .last-sec{
+  
+    margin-left: 5%;
+    margin-top: 4%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #174ea6;
+    font-weight: 500;
+    position: relative;
+    width:100%
+    
+  }
+  
+  .next-button{
+    position: absolute;
+  }
+  
+  .firstname {
+    width: 10rem;
+  }
+  
+  .username-text{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+  
+  }
+  
+  p{
+    color: blue;
+  }
+
+  .logotwo{
+      align-items: center;
+      justify-content: center;
+  }
