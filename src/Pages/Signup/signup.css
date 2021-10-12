@@ -1,80 +1,190 @@
-.fundologoo{
-  margin-left: 40%;
+.sign-main {
+  margin-top: 5%;
+  height: 80vh;
+  width: 35vw;
+  justify-content: center;
+  border-radius: 20px;
+  border: lightgray 1px solid;
+  margin-left: 30%;
+}
+
+
+.fundologoo {
+  margin-left: 42%;
   margin-top: 2rem;
   height: 5vh;
   width: 10vw;
- 
+  flex-direction: column;
+  display: flex;
   margin-bottom: 2%;
-}
-  
 
-  .div1{
-    border: 1px solid #dadcdf;
-    width: 500px;
-    margin-left: 500px;
-    margin-top: 70px;
-    padding-top: 30px;
-    padding-bottom: 70px;
-
-}
-
-#p1{
-    margin-left: 40%;
-    font-size: 32px;
-    margin-top: 15px;
-    margin-bottom: 17px;
-}
-#p2{
-    margin-left: 150px;
-    font-size: 20px;
-    margin-top: 0px;
 }
 
 
 
-#a1{
-   
-    text-decoration: none;
-    margin-top: 20%;
-    font-weight: bold;
-    color: #1a73e8;
-}
-#p3{
-    font-size: 18px;
-    margin-left: 5%;
-    margin-top: 57px;
-    opacity: 0.8;
-    margin-bottom: 3px;
-}
-#a2{
-    font-size: 19px;
-    text-decoration: none;
-    margin-left: 50px;
-    font-weight: bold;
-    color: #1676f3;
-}
-#a3{
-    font-size: 19px;
-    text-decoration: none;
-    margin-left: 50px;
-    color: #1676f3;
-    font-weight: bold;
+.sign-text {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 3rem;
 }
 
 
-.p3{
-  font-size: 16px;
-  color: #5f6368;
-  line-height: 20px;
-  font-weight: 400;
-  margin-left: 5%;
-  margin-top: 10%;
-  font-family: Arial, Helvetica, sans-serif;
+.subsign-text {
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
-.p7{
-  font-size: 16px;
+.email-phone,
+.password {
+  margin-left: 8%;
+  margin-right: 9%;
+}
+
+.forgot-email {
   font-weight: 500;
-  line-height: 20px;
-  color: blue;
+  line-height: 1.8rem;
+  font-size: 0.95rem;
+  margin-left: 10%;
+  cursor: pointer;
+  color: rgb(22, 122, 236);
+}
+
+.forgot-password {
+  font-weight: 500;
+  line-height: 1.5rem;
+  font-size: 0.95rem;
+  margin-left: 10%;
+  cursor: pointer;
+  color: rgb(22, 122, 236);
+
+}
+
+.learn {
+  cursor: pointer;
+  color: rgb(22, 122, 236);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-left: 9%;
+
+
+}
+
+.mid-text {
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  display: flex;
+  margin-left: 9%;
+  color: rgb(95, 95, 95);
+
+}
+
+.last-section {
+  margin-top: 10%;
+  margin-left: 8%;
+  display: grid;
+  grid-gap: 40%;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.create-account {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-left: 8%;
+  cursor: pointer;
+  color: rgb(22, 122, 236);
+  text-decoration: none;
+}
+
+
+
+.Next-button {
+  height: 5vh;
+  width: 5vw;
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+  .sign-main {
+    width: 45vw;
+    margin-top: 2rem;
+    height: 90vh;
+  }
+
+  .mid-text {
+
+    font-size: 0.7rem;
+  }
+
+  .learn {
+    margin-left: 6%;
+  }
+
+  .last-section {
+    grid-gap: 32%;
+  }
+
+  .fundologoo{
+    margin-bottom: 4%;
+  }
+
+
+
+}
+
+
+
+
+
+@media screen and (max-width: 425px) {
+
+  .sign-main {
+    margin-top: 1rem;
+    height: 93vh;
+    width: 85vw;
+    margin-left: 10%;
+  }
+
+  .sign-text {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
+  .subsign-text {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    margin-top: 0rem;
+  }
+
+  .mid-text {
+    font-size: 0.7rem;
+    margin-left: 6%;
+  }
+
+  .learn {
+    font-size: 0.8rem;
+    margin-left: 6%;
+  }
+
+  .last-section {
+    margin-top: 5%;
+    grid-gap: 21%;
+  }
+
+  .fundologoo{
+    margin-bottom: 6%;
+  }
+
+
+
 }

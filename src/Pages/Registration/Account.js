@@ -19,7 +19,7 @@ function Account() {
         <div class = "left">
             
         <div className = "fundologo">
-        <h1>
+        <h2>
         <span class="blue">F</span>
         <span class="red">u</span>
         <span class="yellow">n</span>
@@ -27,7 +27,7 @@ function Account() {
         <span class="green">o</span>
         <span class="red">o</span>
       
-        </h1>
+        </h2>
               
         </div>
           
@@ -63,6 +63,7 @@ function Account() {
         </div>
             <div class ="right">
             <img src = {logotwo} className = "logotwo"></img>
+            <div className = "logotwo-text">  One account. All of Fundoo working for you.</div> 
 
             </div>
             

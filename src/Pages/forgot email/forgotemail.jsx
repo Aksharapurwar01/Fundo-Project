@@ -1,47 +1,49 @@
-import React from "react";
-import './forgotemail.css';
-import TextField from '@mui/material/TextField';
 
-import Stack from '@mui/material/Stack';
+import './forgotemail.css'
+import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 
 
+import React, { Component } from 'react'
 
-function forgotemail() {
-    return (
-        <div class="div1">
-        <div class = "fundologoo">
-                <h2>
-                <span class="blue">F</span>
-                <span class="red">u</span>
-                <span class="yellow">n</span>
-                <span class="blue">d</span>
-                <span class="green">o</span>
-                <span class="red">o</span>
+export class forgotemail extends Component {
+    render() {
+        return (
             
-                </h2>
-          
-       </div>
-        <p id="p1">Sign in</p>
-        <p id="p2">Use your Google Account</p>
-        <div class = "User-Name">
+                <div className="forgot-main">
 
-        <TextField id="user" label="Username" variant="outlined" size='large' sx={{ width: '53ch' }} />
-        <a id="a1" href="#">Forgot email?</a>
-       
-        </div>
+                    <div className="fundologoo">
+                        <h2>
+                            <span class="blue">F</span>
+                            <span class="red">u</span>
+                            <span class="yellow">n</span>
+                            <span class="blue">d</span>
+                            <span class="green">o</span>
+                            <span class="red">o</span>
 
-        <div>
-        <p class="p3">Not your computer? Use a Private Window to sign in.</p>
-        </div>
-        <Stack spacing={30} direction="row" sx={{ ml: 3, mb:5, mt:5 }} >
-            <p class = "p7">Create Account</p>
-            <Button variant="contained"  sx={{ height:'5ch' }} >Next</Button>
-        </Stack>
-       
-        
-    </div>
-    )
+                        </h2>
+
+                    </div>
+
+                    <div className="forgot-text">Find your email</div>
+                    <div className="subforgot-text">Enter your phone number or recovery email</div>
+
+                    <div className='phonenumber-email'>
+                        <TextField fullWidth id="phonenumber-email" label="Phone number or email" variant="outlined" size='large' />
+                    </div>
+
+                    <div className="end">
+                        <Button variant="contained">Next</Button>
+                    </div>
+
+                </div>
+
+            
+        )
+    }
 }
 
 export default forgotemail
+
+

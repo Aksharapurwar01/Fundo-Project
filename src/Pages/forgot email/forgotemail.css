@@ -1,0 +1,86 @@
+.forgot-main {
+  margin-top: 7rem;
+  height: 65vh;
+  width: 30vw;
+  justify-content: center;
+  border-radius: 20px;
+  margin-left: 33%;
+  border: lightgray 1px solid;
+}
+
+
+
+.forgot-text {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 3rem;
+}
+
+.subforgot-text {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.phonenumber-email {
+  margin-left: 8%;
+  margin-right: 9%;
+}
+
+
+.end {
+  display: flex;
+  justify-content: end;
+  padding: 3rem;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  .forgot-main {
+    height: 90vh;
+    width: 60vw;
+    margin-left: 20%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+
+  .subforgot-text {
+    font-size: 0.8rem;
+  }
+
+  .end {
+    padding: 2rem;
+  }
+
+
+}
+
+
+
+
+
+@media screen and (max-width: 425px) {
+
+  .forgot-main {
+    margin-top: 4rem;
+    height: 70vh;
+    width: 80vw;
+    margin-left: 10%;
+  }
+
+  .subforgot-text {
+    font-size: 0.75rem;
+  }
+
+  .end {
+    padding: 2rem;
+  }
+
+ 
+
+}
