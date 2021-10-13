@@ -148,3 +148,59 @@
   .yellow{
     color: yellow;
   }
+
+  @media  screen and (max-width : 800px) {
+
+    .logotwo{
+      display: none;
+    }
+
+    .left{
+      flex: 100%;
+    }
+
+    .Main{
+      width: 70%;
+    }
+    
+  }
+
+  @media  screen and (max-width : 500px) {
+
+    .logotwo{
+      display: none;
+    }
+
+    .left{
+      flex: 100%;
+    }
+
+    .Main{
+      width: 100%;
+      margin-left: 5%;
+      border: none;
+    }
+
+    
+  }
+
+  @media  screen and (max-width : 320px) {
+
+    .logotwo{
+      display: none;
+    }
+
+    .left{
+      flex: 100%;
+    }
+
+    .Main{
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      border: none;
+    }
+
+    
+  }
