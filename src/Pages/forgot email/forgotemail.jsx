@@ -1,11 +1,12 @@
-
 import './forgotemail.css'
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
-
+import UserServices from '../../service/userservice';
+import { Snackbar, IconButton } from '@mui/material';
 
 import React, { Component } from 'react'
+
+const obj = new UserServices();
 
 export class forgotemail extends Component {
 
@@ -14,18 +15,22 @@ export class forgotemail extends Component {
 
         this.state = {
             email: "",
-            
+
             emailError: false,
-          
+
         }
     }
+
+    snackbarClose = (event) => {
+        this.setState({ snackbaropen: false });
+    };
 
     isValidated = () => {
         console.log("validation");
         let isError = false;
         const errors = this.state;
         errors.emailError = this.state.email !== '' ? false : true;
-       
+
 
         this.setState({
             ...errors
@@ -37,6 +42,26 @@ export class forgotemail extends Component {
         var isValid = this.isValidated();
         if (!isValid) {
             console.log("Validation Sucessfull!");
+
+            let forgotObj = {
+                "email": this.state.email,
+            }
+            console.log(forgotObj);
+            obj.forgot(forgotObj).then((response) => {
+                console.log(response);
+                this.setState({ snackbaropen: true, snackbarmsg: "Sent link to email!" });
+                // var timer  = setTimeout(function(){
+                //     window.location = '/resetpassword'
+                // }, 2000);
+                // this.props.history.push("/resetpassword");
+            }).catch((error) => {
+                console.log(error);
+                this.setState({ snackbaropen: true, snackbarmsg: "Enter valid email!" })
+            })
+        } else {
+            this.setState({ snackbaropen: true, snackbarmsg: "Please enter data!" })
+
+
         }
     }
 
@@ -50,6 +75,20 @@ export class forgotemail extends Component {
         return (
 
             <div className="forgot-main">
+
+                <Snackbar
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    open={this.state.snackbaropen}
+                    autoHideDuration={6000}
+                    onClose={this.snackbarClose}
+
+                    message={<span id="message_id">{this.state.snackbarmsg}</span>}
+                    action={[
+                        <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                            X
+                        </IconButton>
+                    ]}
+                />
 
                 <div className="fundologoo">
                     <h2>

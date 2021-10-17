@@ -6,12 +6,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import List from '@mui/material/List';
-
+import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
+import keep from '../Dashboard/keep.png'
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -26,9 +28,10 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { PortableWifiOffOutlined, ReorderOutlined } from '@mui/icons-material';
+import { Create, PortableWifiOffOutlined, ReorderOutlined } from '@mui/icons-material';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 
+import CreateNote from './components/createnote';
 
 const drawerWidth = 240;
 
@@ -87,7 +90,12 @@ function ResponsiveDrawer(props) {
 
     const drawer = (
         <div>
+            {/* <img src={keep} className='keep_logo' alt="keep image" />
+             <Typography variant="h6" noWrap component="div">
+                        Fundoo Keep
+              </Typography> */}
             <Toolbar />
+            
             <Divider />
             <List>
                 <ListItemButton>
@@ -104,19 +112,19 @@ function ResponsiveDrawer(props) {
                 </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
-                        <NotificationsOutlinedIcon />
+                        <ModeEditOutlineOutlinedIcon/>
                     </ListItemIcon>
                     <ListItemText primary="Edit Labels" />
                 </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
-                        <NotificationsOutlinedIcon />
+                      <ArchiveOutlinedIcon/>
                     </ListItemIcon>
                     <ListItemText primary="Archieve" />
                 </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
-                        <NotificationsOutlinedIcon />
+                    <DeleteOutlineOutlinedIcon/>
                     </ListItemIcon>
                     <ListItemText primary="Bin" />
                 </ListItemButton>
@@ -130,7 +138,7 @@ function ResponsiveDrawer(props) {
                     </ListItem>
                 ))} */}
             </List>
-            <Divider />
+            
             {/* <List>
                 {['All mail', 'Trash', 'Spam'].map((text, index) => (
                     <ListItem button key={text}>
@@ -169,7 +177,7 @@ function ResponsiveDrawer(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-
+                    <img src={keep} className='keep_logo' alt="keep image" />
                     <Typography variant="h6" noWrap component="div">
                         Fundoo Keep
                     </Typography>
@@ -225,7 +233,7 @@ function ResponsiveDrawer(props) {
                         onClick={handleDrawerToggle}
                         sx={{ ml: 2, display: { sm: 'block' } }}
                     >
-                       <PortableWifiOffOutlined/>
+                     <AccountCircleIcon/>
                     </IconButton>
                 </Toolbar>
             </AppBar>
@@ -263,21 +271,7 @@ function ResponsiveDrawer(props) {
             </Box>
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 <Toolbar />
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-                    sapien faucibus et molestie ac.
-                </Typography>
-
+             <CreateNote />
             </Box>
         </Box>
     );

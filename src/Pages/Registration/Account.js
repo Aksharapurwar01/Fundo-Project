@@ -2,17 +2,15 @@ import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
+import UserServices from '../../service/userservice';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import './account.css';
 import logotwo from './account (1).svg';
 import React, { Component } from 'react'
+import { Snackbar, IconButton } from '@mui/material';
 
-import {
-    signup 
-} from '../../service/axioxsservice';
-
+const obj = new UserServices();
 
 export class Account extends Component {
 
@@ -31,9 +29,15 @@ export class Account extends Component {
             emailError: false,
             passError: false,
             confirmPasswordError: false,
+            snackbaropen: false, 
+            snackbarmsg: ""
              
         };
     }
+
+    snackbarClose = (event) => {
+        this.setState({snackbaropen: false});
+    };
 
     isValidated = () => {
         let isError = false;
@@ -56,23 +60,31 @@ export class Account extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
-        }
-        let signupObj = {
-            "firstName": this.state.fName, 
-            "lastName": this.state.lName, 
-           
-            "email":this.state.email,
-            "password" : this.state.password,
-            "service" : "advance"
+            let signupObj = {
+                "firstName": this.state.fName,
+                "lastName": this.state.lName, 
+                "email": this.state.email,
+                "password": this.state.password,
+                "confirmpassword": this.state.confirmPassword,
+                "service": "advance"
+            }
+            console.log(signupObj);
+            obj.signup(signupObj).then((response)=>{
+                console.log(response);
+                this.setState({snackbaropen:true, snackbarmsg: "Signup Successfull!"});
+                var timer  = setTimeout(function(){
+                    window.location = '/'
+                }, 2000);
+            }).catch((error)=>{
+                console.log(error);
+                this.setState({snackbaropen:true, snackbarmsg: "Signup Failed! Enter valid data"});
+            })
+        } else {
+            this.setState({snackbaropen:true, snackbarmsg: "Please enter data!"})   
+
             
         }
-        console.log(signupObj);
-        signup(signupObj).then(function(response){
-            console.log(response);
-            
-        }).catch(function(error){
-            console.log(error);
-        })
+        
     }
 
     change = (e) => {
@@ -83,7 +95,21 @@ export class Account extends Component {
     }
     render() {
         return (
-            <div class = "Main">
+
+        <div class = "Main">
+            <Snackbar
+            anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
+            open = {this.state.snackbaropen}
+            autoHideDuration = {6000}
+            onClose = {this.snackbarClose}
+
+            message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
+            action ={[
+            <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                X
+            </IconButton>
+            ]}
+            />
             <div class = "left">
                 
             <div className = "fundologo">

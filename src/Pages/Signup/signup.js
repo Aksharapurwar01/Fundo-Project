@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './signup.css';
 import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
+import UserServices from '../../service/userservice';
 import Button from '@mui/material/Button';
-
+import { Snackbar, IconButton } from '@mui/material';
+import Dashboard from '../Dashboard/Dashboard';
 import {
     BrowserRouter as Router,
     Switch,
@@ -11,11 +12,13 @@ import {
     Link
   } from "react-router-dom";
 
-import axios from 'axios';
+
+  const obj = new UserServices();
 
 
 
 export class signup extends Component {
+
 
     constructor(props) {
         super(props)
@@ -25,8 +28,15 @@ export class signup extends Component {
             password: "",
             emailError: false,
             passError: false,
+            snackbaropen: false, 
+            snackbarmsg: ""
         }
     }
+
+    snackbarClose = (event) => {
+        this.setState({snackbaropen: false});
+    };
+    
     
     isValidated = () => {
         console.log("validation");
@@ -45,7 +55,27 @@ export class signup extends Component {
         var isValid = this.isValidated();
         if(!isValid) {
             console.log("Validation Sucessfull!");
+            let signinObj = {
+                "email": this.state.email,
+                "password": this.state.password,
+            }
+            console.log(signinObj);
+            obj.signin(signinObj).then((response)=>{
+                console.log(response);
+                localStorage.setItem("token", response.data.id);
+                this.setState({snackbaropen:true, snackbarmsg: "Signin Successful!"})
+                var timer  = setTimeout(function(){
+                    window.location = '/Dashboard'
+                }, 2000);
+            }).catch((error)=>{
+                console.log(error);
+                this.setState({snackbaropen:true, snackbarmsg: "Signin Failed! Enter valid data"})
+            })
+        }  else {
+            this.setState({snackbaropen:true, snackbarmsg: "Please enter data!"})
+
         }
+
     }
 
     change = (e) => {
@@ -60,6 +90,19 @@ export class signup extends Component {
         return (
            
         <div class = "sign-main">
+            <Snackbar
+            anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
+            open = {this.state.snackbaropen}
+            autoHideDuration = {6000}
+            onClose = {this.snackbarClose}
+
+            message = {<span id= "message_id">{this.state.snackbarmsg}</span>}
+            action ={[
+            <IconButton key="close" aria-label="Close" color="inherit" onClick={this.snackbarClose}>
+                X
+            </IconButton>
+            ]}
+            />
     
         <div className = "fundologoo">
            <h2>
