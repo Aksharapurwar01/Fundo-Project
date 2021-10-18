@@ -1,0 +1,47 @@
+.note1content {
+    position: absolute;
+    margin-left: 20%;
+   
+    border: 1px solid rgb(228, 225, 225);
+    border-radius: 8px;
+    height: 21vh;
+    width: 17vw;
+}
+
+.note2content{
+    position: absolute;
+    margin-left: 40%;
+    
+    border: 1px solid rgb(228, 225, 225);
+    border-radius: 8px;
+    height: 21vh;
+    width: 17vw;
+}
+.note2content > h4{
+    margin-left: 1rem;
+
+}
+
+
+.note1content > h4 {
+    color: #000;
+    position: absolute;
+ 
+    margin-left: 1rem;
+}
+
+.list1,.list11{
+    font-size: 0.875rem;
+    position: absolute;
+    margin-left: 1rem;
+    top: 3rem;
+}
+
+.list2,.list22{
+    font-size: 0.875rem;
+    position: absolute;
+    margin-left: 1rem;
+    top: 4rem;
+}
+
+

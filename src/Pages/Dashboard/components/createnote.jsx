@@ -1,64 +1,113 @@
-import React from "react";
-import AddIcon from '@mui/icons-material/Add';
-import Fab from '@mui/material/Fab';
-import Zoom from '@mui/material/Zoom';
+import React from 'react';
+import "./createnote.css";
+import { useState } from "react";
+import AddAlertOutlinedIcon from "@mui/icons-material/AddAlertOutlined";
+import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
+import ColorLensOutlinedIcon from "@mui/icons-material/ColorLensOutlined";
+import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
+import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
+import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
+import UndoOutlinedIcon from "@mui/icons-material/UndoOutlined";
+import RedoOutlinedIcon from "@mui/icons-material/RedoOutlined";
+import Button from "@mui/material/Button";
+import IconButton from '@mui/material/IconButton';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
+import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
+import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
 
 
-function CreateArea(props) {
-    const [isExpanded, setExpanded] = React.useState(false);
-    const [note, setNote] = React.useState({ title: "", content: "" });
 
-    function handleChange(event) {
-        const { name, value } = event.target;
-        setNote((prevValue) => {
-            return {
-                ...prevValue,
-                [name]: value
-            };
-        });
-    }
 
-    function addNote(event) {
-        props.onAdd(note);
-        setNote({ title: "", content: "" });
-        event.preventDefault();
-    }
 
-    function expand() {
-        setExpanded(true);
-    }
+
+function Notes() {
+
+    const [show, setShow] = useState(false);
+    const [hide, setHide] = useState(true);
+
+    const expandIt = () => {
+        setShow(true);
+        setHide(false);
+    };
+
+    const normal = () => {
+        setShow(false);
+        setHide(true);
+    };
+
 
     return (
         <div>
-            <form className="create-note">
-                {isExpanded && (
-                    <input
-                        name="title"
-                        onChange={handleChange}
-                        value={note.title}
-                        placeholder="Take a note"
-                    />
+
+            <div className="note-title">
+                {hide && (
+                    <form id="note-title-form1">
+                        
+                            <input className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..." onDoubleClick={expandIt} />
+                            <div className="Notesicon">
+                                <IconButton size="large" >
+                                    <CheckBoxOutlinedIcon />
+                                </IconButton>
+                                <IconButton size="large" >
+                                    <BrushOutlinedIcon className="paint" />
+                                </IconButton>
+                                <IconButton size="large" >
+                                    <InsertPhotoOutlinedIcon />
+                                </IconButton>
+                            </div>
+                      
+                    </form>
                 )}
 
-                <textarea
-                    name="content"
-                    onClick={expand}
-                    onChange={handleChange}
-                    value={note.content}
-                    placeholder="Take a note..."
-                    rows={isExpanded ? 3 : 1}
-                />
+                {show && (
+                    <form id="note-title-form2">
+                        <p>
+                            <input
+                                className="form-input-1"
+                                type="text"
+                                placeholder="Title"
+                                name="title"
+                            />
+                            <input className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..." />
 
-                <Zoom in={isExpanded}>
-                    <Fab onClick={addNote}>
-                        
-                        <AddIcon />
-                    </Fab>
-                </Zoom>
-            </form>
+                        </p>
+                        <div id="icons">
+                            <AddAlertOutlinedIcon
+                                style={{ fontSize: "large" }}
+                            ></AddAlertOutlinedIcon>
+                            <PersonAddOutlinedIcon
+                                style={{ fontSize: "large" }}
+                            ></PersonAddOutlinedIcon>
+                            <ColorLensOutlinedIcon
+                                style={{ fontSize: "large" }}
+                            ></ColorLensOutlinedIcon>
+                            <ImageOutlinedIcon
+                                style={{ fontSize: "large" }}
+                            ></ImageOutlinedIcon>
+                            <ArchiveOutlinedIcon
+                                style={{ fontSize: "large" }}
+                            ></ArchiveOutlinedIcon>
+                            <MoreVertOutlinedIcon
+                                style={{ fontSize: "large" }}
+                            ></MoreVertOutlinedIcon>
+                            <UndoOutlinedIcon style={{ fontSize: "large" }}></UndoOutlinedIcon>
+                            <RedoOutlinedIcon style={{ fontSize: "large" }}></RedoOutlinedIcon>
+                            <Button className="button" style={{ fontSize: "small" }} onClick={normal}>Close</Button>
+                        </div>
 
-    </div >
-  );
+
+                    </form>
+                )}
+
+
+
+            </div>
+        </div>
+    )
 }
 
-export default CreateArea;
+
+
+
+
+export default Notes

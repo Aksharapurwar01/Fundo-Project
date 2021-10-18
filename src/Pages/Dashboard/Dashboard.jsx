@@ -37,6 +37,7 @@ import { Create, PortableWifiOffOutlined, ReorderOutlined } from '@mui/icons-mat
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CreateNote from './components/createnote';
+import Notes from './components/notes';
 
 const drawerWidth = 240;
 
@@ -262,6 +263,7 @@ export default function Home() {
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
           <CreateNote />
+          <Notes />
         </Box>
       </Box>
       
