@@ -74,10 +74,10 @@ export class Account extends Component {
                 this.setState({snackbaropen:true, snackbarmsg: "Signup Successfull!"});
                 var timer  = setTimeout(function(){
                     window.location = '/'
-                }, 2000);
+                }, 1000);
             }).catch((error)=>{
                 console.log(error);
-                this.setState({snackbaropen:true, snackbarmsg: "Signup Failed! Enter valid data"});
+                this.setState({snackbaropen:true, snackbarmsg: "Signup Failed, Enter valid data"});
             })
         } else {
             this.setState({snackbaropen:true, snackbarmsg: "Please enter data!"})   
@@ -100,7 +100,7 @@ export class Account extends Component {
             <Snackbar
             anchorOrigin= {{vertical:'bottom', horizontal:'right'}}
             open = {this.state.snackbaropen}
-            autoHideDuration = {6000}
+            autoHideDuration = {5000}
             onClose = {this.snackbarClose}
 
             message = {<span id= "message_id">{this.state.snackbarmsg}</span>}

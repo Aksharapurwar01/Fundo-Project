@@ -9,14 +9,20 @@ import React, { Component } from 'react'
 const obj = new UserServices();
 
 export class forgotpassword extends Component {
+
     constructor(props) {
         super(props)
 
         this.state = {
 
             password: "",
-
             passError: false,
+            password: "",
+            confirmPassword: "",
+            passError: false,
+            confirmPassError: false,
+            snackbaropen: false,
+            snackbarmsg: ""
         }
     }
 
@@ -28,21 +34,18 @@ export class forgotpassword extends Component {
         console.log("validation");
         let isError = false;
         const errors = this.state;
-        errors.emailError = this.state.email !== '' ? false : true;
         errors.passError = this.state.password !== '' ? false : true;
-
+        errors.confirmPassError = this.state.confirmPassword !== '' ? false : true;
         this.setState({
             ...errors
         })
-        return isError = errors.emailError || errors.passError
+        return isError = errors.passError || errors.confirmPassError
     }
 
     next = () => {
         var isValid = this.isValidated();
         if (!isValid) {
             console.log("Validation Sucessfull!");
-
-
             let resetObj = {
                 "newPassword": this.state.password,
                 "confirmPassword": this.state.confirmPassword
@@ -60,6 +63,9 @@ export class forgotpassword extends Component {
             })
         } else {
             this.setState({ snackbaropen: true, snackbarmsg: "Please enter data!" })
+
+
+
         }
     }
 
@@ -105,9 +111,14 @@ export class forgotpassword extends Component {
                     <div className="subforgot-text">Enter your phone number or recovery email</div>
 
                     <div className='phonenumber-email'>
-                        <TextField fullWidth id="phonenumber-email" name="password" label="Password" variant="outlined" size='large' error={this.state.passError}
-                            onChange={e => this.change(e)}
-                            helperText={this.state.passError ? "Enter a password" : ''} />
+                        <TextField fullWidth id="password" name="password" label="password" variant="outlined" size='large' error={this.state.passError}
+                        onChange={e => this.change(e)}
+                        helperText={this.state.passError ? "Enter new password" : ''}/>
+                    </div>
+                    <div className='phonenumber-email'>
+                        <TextField fullWidth id="confirmpassword" name="confirmPassword" margin="dense" label="confirm password" variant="outlined" size='large' error={this.state.confirmPassError}
+                        onChange={e => this.change(e)}
+                        helperText={this.state.confirmPassError ? "Enter a confirm password" : ''} />
                     </div>
 
                     <div className="end">

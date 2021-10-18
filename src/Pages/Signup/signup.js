@@ -62,17 +62,17 @@ export class signup extends Component {
             console.log(signinObj);
             obj.signin(signinObj).then((response)=>{
                 console.log(response);
-                localStorage.setItem("token", response.data.id);
+                localStorage.setItem("token", response.data.id); // local
                 this.setState({snackbaropen:true, snackbarmsg: "Signin Successful!"})
                 var timer  = setTimeout(function(){
                     window.location = '/Dashboard'
-                }, 2000);
+                }, 1000);
             }).catch((error)=>{
                 console.log(error);
-                this.setState({snackbaropen:true, snackbarmsg: "Signin Failed! Enter valid data"})
+                this.setState({snackbaropen:true, snackbarmsg: "Signin Failed, Enter valid data"})
             })
         }  else {
-            this.setState({snackbaropen:true, snackbarmsg: "Please enter data!"})
+            this.setState({snackbaropen:true, snackbarmsg: "Please enter valid data!"})
 
         }
 

@@ -155,7 +155,7 @@ export default function Home() {
     setOpen(!open);
   };
 
-  // Notes
+  // form
   const [show, setShow] = useState(false);
   const expand = () => {
     setShow(true);
