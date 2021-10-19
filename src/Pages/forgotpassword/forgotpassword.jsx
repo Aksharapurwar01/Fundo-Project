@@ -55,7 +55,7 @@ export class forgotpassword extends Component {
                 console.log(response);
                 this.setState({ snackbaropen: true, snackbarmsg: "Password is reset!" })
                 var timer = setTimeout(function () {
-                    window.location = '/'
+                     window.location = '/'
                 }, 2000);
             }).catch((error) => {
                 console.log(error);

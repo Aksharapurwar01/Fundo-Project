@@ -62,10 +62,14 @@ export class signup extends Component {
             console.log(signinObj);
             obj.signin(signinObj).then((response)=>{
                 console.log(response);
-                localStorage.setItem("token", response.data.id); // local
+                localStorage.setItem("token", response.data.id);
+                localStorage.setItem("firstName", response.data.firstName);
+                localStorage.setItem("email", response.data.email);
+                console.log(response.data.id);
+              
                 this.setState({snackbaropen:true, snackbarmsg: "Signin Successful!"})
                 var timer  = setTimeout(function(){
-                    window.location = '/Dashboard'
+                     window.location = '/Dashboard'
                 }, 1000);
             }).catch((error)=>{
                 console.log(error);

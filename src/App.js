@@ -4,7 +4,7 @@ import Account from './Pages/Registration/Account';
 import Signup from './Pages/Signup/signup';
 import Forgotemail from './Pages/forgot email/forgotemail';
 import Forgotpassword from './Pages/forgotpassword/forgotpassword';
-import Sidenav from './Pages/Dashboard/components/sidenav'
+
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Dashboardd from './Pages/Dashboard/Dashboard-Fundo';
 
@@ -32,9 +32,7 @@ function App() {
           <Route  path="/forgotpassword" component = {Forgotpassword}>
            
            </Route>
-           <Route  path="/sidenav" component = {Sidenav}>
-           
-           </Route>
+        
            <Route  path="/Dashboard" component = {Dashboard}>
            
            </Route>

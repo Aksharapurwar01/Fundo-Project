@@ -5,9 +5,9 @@ const baseurl = "http://fundoonotes.incubation.bridgelabz.com/api/"
 var url = baseurl.split('/');
 const token = localStorage.getItem("token");
 const headerconfig = {
-    header: {
-    Authorization: {token},
-    }
+    headers: {
+    Authorization: token,
+    },
 };
 
 
@@ -26,6 +26,15 @@ class UserServices {
     }
     reset(data) {
         let response = obj.postMeth(`${baseurl}user/reset-password`, data, headerconfig);
+        return response;
+    }
+    addNotes(data){
+        let  response  = obj.postMeth(`${baseurl}notes/addNotes`,data, headerconfig);
+        return response;
+     }
+
+     getAllNotes(data){
+        let response = obj.getMethod(`${baseurl}notes/getNotesList`,data, headerconfig);
         return response;
     }
 }
