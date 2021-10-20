@@ -33,7 +33,7 @@ export class createnote extends Component {
             description: "",
             snackbaropen: false,
             snackbarmsg: "",
-            color:""
+            color: ""
 
         }
     }
@@ -61,9 +61,9 @@ export class createnote extends Component {
         console.log(e.target.value)
     }
 
-    handleColor=(data)=>{
+    handleColor = (data) => {
         this.setState({
-            color:data
+            color: data
         });
 
     }
@@ -83,6 +83,7 @@ export class createnote extends Component {
         let addnotesObj = {
             "title": this.state.title,
             "description": this.state.description,
+            "color": this.state.color,
 
         }
         console.log(addnotesObj);
@@ -147,7 +148,9 @@ export class createnote extends Component {
                     )}
 
                     {this.state.show && (
-                        <form id="note-title-form2">
+                        <form id="note-title-form2" style ={{
+                            backgroundColor : this.state.color
+                        }}>
                             <p>
                                 <input
                                     className="form-input-1"
@@ -155,15 +158,27 @@ export class createnote extends Component {
                                     placeholder="Title"
                                     name="title"
                                     onChange={e => this.change(e)}
+                                    style={{
+                                        backgroundColor: this.state.color
+                                    }
+                                    }
+
                                 />
-                                <input name="description" className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..." onChange={e => this.change(e)} />
+                                <input name="description" className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..."
+                                    onChange={e => this.change(e)}
+                                    style={{
+                                        backgroundColor: this.state.color
+                                    }
+                                    }
+
+                                />
 
                             </p>
                             <div id="icons">
-                                <Icon colorval = "create"
-                                val = {this.state}
-                                getcolor = {this.handleColor} />
-                                
+                                <Icon colorval="create"
+                                    val={this.state}
+                                    getcolor={this.handleColor} />
+
                                 {/* <UndoOutlinedIcon style={{ fontSize: "large" }}></UndoOutlinedIcon>
                                 <RedoOutlinedIcon style={{ fontSize: "large" }}></RedoOutlinedIcon> */}
                                 <Button className="button" style={{ fontSize: "small" }} onClick={this.normal}>Close</Button>

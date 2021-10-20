@@ -41,10 +41,7 @@ const ColorPalette = (props) => {                             //function
   
     const open = Boolean(anchorEl); //
 
-    const setColor = (color) =>{
-        console.log(color);
-       
-    }
+   
   
     const colordemo=(val)=>{
         return ( 
@@ -55,7 +52,9 @@ const ColorPalette = (props) => {                             //function
                     color:val.code,
                     
                     }}
-                    onClick = {() => {setColor(val.code)}}
+                    onClick = {() =>{
+                        props.putColor(val);
+                        handleClick()} }
                 >
                 </div>
             </div> )

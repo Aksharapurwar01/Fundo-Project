@@ -1,42 +1,34 @@
 import React, { Component } from 'react';
 import AddAlertOutlinedIcon from "@mui/icons-material/AddAlertOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
-
+import UserServices from '../../service/userservice';
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import ColorPalette from './ColorPalette';
 
-const colors=[{
-    code: '#FFFFFF',
-},{
-    code: '#f28b82',
-},{
-    code: '#fbbc04',
-},{
-    code: '#fff475',
-},{
-    code: '#ccff90',
-},{
-    code: '#a7ffeb',
-},{
-    code: '#cbf0f8',
-},{
-    code: '#aecbfa',
-},{
-    code: '#d7aefb',
-},{
-    code: '#fdcfe8',
-},{
-    code: '#e6c9a8',
-},{
-    code: '#e8eaed',
-}]
-
-
+const obj = new UserServices();
 
 
 export class Icon extends Component {
+
+    onSetColor = (color) => {
+        if (this.props.colorval === "update") {
+            let Data = {
+                color: color.code,
+                noteIdList: [this.props.val.id]
+            };
+            obj.changeColor(Data).then((response) => {
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            });
+        } else {
+            this.props.getcolor(color.code);
+        }
+    }
+
+
     render() {
         return (
             <>
@@ -48,7 +40,10 @@ export class Icon extends Component {
                 ></PersonAddOutlinedIcon>
 
 
-                <ColorPalette />
+                <ColorPalette
+                    putColor={(Data) => {
+                        this.onSetColor(Data);
+                    }} />
 
                 <ImageOutlinedIcon
                     style={{ fontSize: "large" }}

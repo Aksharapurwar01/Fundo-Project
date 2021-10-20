@@ -10,7 +10,7 @@ const Notes = (props) => {
     setNewNote(!newNote);
   };
 
- 
+  const {classes} = props;
 
   return (
     <div className="notes" onMouseEnter={newNotes1}>
@@ -21,6 +21,9 @@ const Notes = (props) => {
         <div className="content1">{props.index.description}</div>
         <div id = "icons">
           <Icon colorval = "update"
+          val = {props.index}
+          id = {props.index.id}
+
         />
         </div>
       </div>
