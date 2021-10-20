@@ -1,49 +1,56 @@
-.note1content {
+.displayNotes_main {
     position: absolute;
-    margin-left: 20%;
-    display: flex;
+    left: 15rem;
+    top: 17rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.note1_content {
     border: 1px solid rgb(228, 225, 225);
     border-radius: 8px;
     height: 21vh;
-    width: 17vw;
-    margin-top: 5%;
+    min-width: 17vw;
+    width: fit-content;
+    
 }
 
-.note2content{
-    position: absolute;
-    margin-left: 40%;
-    display: flex;
-    border: 1px solid rgb(228, 225, 225);
-    border-radius: 8px;
-    height: 21vh;
-    width: 17vw;
-    margin-top: 5%;
-}
-.note2content > h4{
-    margin-left: 1rem;
-
-}
-
-
-.note1content > h4 {
-    color: #000;
-    position: absolute;
- 
+.note1_content > h4 {
+    font-size: 1.1rem;
     margin-left: 1rem;
 }
 
-.list1,.list11{
+.content1 {
+    margin-left: 1rem;
+    margin-top: -1rem;
     font-size: 0.875rem;
-    position: absolute;
-    margin-left: 1rem;
-    top: 3rem;
-}
-
-.list2,.list22{
-    font-size: 0.875rem;
-    position: absolute;
-    margin-left: 1rem;
-    top: 4rem;
+   
 }
 
 
+/* media queries */
+
+@media only screen and (min-width: 768px) and (max-width:1024px) {
+    .displayNotes_main {
+        grid-template-columns: 1fr 1fr;
+        left: 10rem;
+        top: 19rem;
+    }
+    .note1_content {
+        width: 32vw;
+        height: 15vh;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width:640px) {
+    .displayNotes_main {
+        grid-template-columns: 1fr;
+        left: 6rem;
+        top: 15rem;
+    }
+    .note1_content {
+        width: 100vw;
+        height: 18vh;
+    }
+}

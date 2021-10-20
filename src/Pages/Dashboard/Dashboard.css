@@ -235,3 +235,36 @@ form.create-note button {
   cursor: pointer;
   outline: none;
 }
+
+@media screen and (min-width: 360px) and (max-width: 640px) {
+  .css-1kcggdq-MuiInputBase-root .MuiInputBase-input{
+      display:none;
+  }
+ 
+  .css-96uuyl{
+    
+         height: 0vh !important;
+         width: 0vw !important;
+     }
+      .css-8u39c-MuiTypography-root {
+         width: 4vw;
+     } 
+     .css-1iz4iln {
+         margin-left: -50px;
+     }
+     .css-1guk29 {
+         display: flex !important;
+ 
+         margin-right: 15% !important;
+     }
+     .MuiBadge-root {
+         margin-right: 38% !important;
+     }
+    
+    
+  
+   .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+       margin-right: 3rem !important;
+ 
+   }
+ }

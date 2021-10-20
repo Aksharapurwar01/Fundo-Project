@@ -34,7 +34,12 @@ class UserServices {
      }
 
      getAllNotes(data){
-        let response = obj.getMethod(`${baseurl}notes/getNotesList`,data, headerconfig);
+        let response = obj.getMethod(`${baseurl}notes/getNotesList`,headerconfig);
+        return response;
+    }
+
+    changeColor(data){
+        let response = obj.postMeth(`${baseurl}notes/changesColorNotes`, data, headerconfig);
         return response;
     }
 }

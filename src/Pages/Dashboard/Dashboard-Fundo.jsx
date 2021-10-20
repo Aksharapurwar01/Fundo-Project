@@ -31,7 +31,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Create, PortableWifiOffOutlined, ReorderOutlined } from '@mui/icons-material';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 
-import CreateNote from './components/createnote';
+
 
 const drawerWidth = 240;
 
@@ -271,7 +271,7 @@ function ResponsiveDrawer(props) {
             </Box>
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 <Toolbar />
-             <CreateNote />
+           
             </Box>
         </Box>
     );

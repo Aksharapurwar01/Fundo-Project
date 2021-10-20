@@ -1,29 +1,29 @@
-import React from 'react';
-import "./notes.css";
+import React, { useEffect } from "react";
+import "./notes.css"
+import UserServices from "../../service/userservice";
+import Notes from "../Show Notes/ShowNotes";
 
-function Notes() {
-    return (
-        <div>
+const obj = new UserServices();
 
-            <div className="note1">
-                <div className="note1content">
-                    <h4>To Do</h4>
-                    <div className="list1">Order</div>
-                    <div className="list2">Ticket Booking</div>
-                </div>
-            </div>
-            <div className="note2">
-                <div className="note2content">
-                    <h4>Technologies</h4>
-                    <div className="list11">React js</div>
-                    <div className="list22">Angular</div>
-                </div>
-            </div>
-        </div>
+const DisplayNotes = () => {
+    const [notesArray, setArray] = React.useState([]);
 
+    useEffect(() => {
+      obj.getAllNotes()
+        .then((response) => {
+          setArray(response.data.data.data);
+          
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+  
+    
+  
+    const notesList = notesArray.map((index) => <Notes index={index} />);
+  
+    return <div className="displayNotes_main">{notesList}</div>;
+};
 
-
-    )
-}
-
-export default Notes
+export default DisplayNotes
