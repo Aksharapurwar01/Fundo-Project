@@ -33,7 +33,7 @@ const colors=[{
   
 const ColorPalette = (props) => {                             //function
     const [anchorEl, setAnchorEl] = React.useState(null);     //
-    const [color, setcolorr] = React.useState(null);  
+    
 
     const handleClick = (event) => {
       setAnchorEl(anchorEl ? null : event.currentTarget);  //

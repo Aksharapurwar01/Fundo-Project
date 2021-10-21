@@ -42,6 +42,16 @@ class UserServices {
         let response = obj.postMeth(`${baseurl}notes/changesColorNotes`, data, headerconfig);
         return response;
     }
+    
+    archiveNotes(data){
+        let response = obj.postMeth(`${baseurl}notes/archiveNotes`, data, headerconfig);
+        return response;
+    }
+
+    deleteNotes(data){
+        let response = obj.postMeth(`${baseurl}notes/trashNotes`, data, headerconfig);
+        return response;
+    }
 }
 
 export default UserServices

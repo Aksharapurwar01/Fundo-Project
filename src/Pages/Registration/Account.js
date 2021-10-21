@@ -15,7 +15,7 @@ const obj = new UserServices();
 export class Account extends Component {
 
     constructor(props) {
-        super(props)
+        super(props)  //props is used to take values as dynamic
     
         this.state = {
 

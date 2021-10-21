@@ -10,8 +10,6 @@ import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
 import { Snackbar } from '@mui/material';
 import UserServices from '../../service/userservice';
 import 'material-design-inspired-color-picker';
-
-import ColorPalette from './ColorPalette';
 import Icon from '../Icon/Icon';
 
 
@@ -33,7 +31,11 @@ export class createnote extends Component {
             description: "",
             snackbaropen: false,
             snackbarmsg: "",
-            color: ""
+            color: "",
+            isArchived: false,
+            isDeleted : false  //set delete value false initial
+
+
 
         }
     }
@@ -61,11 +63,20 @@ export class createnote extends Component {
         console.log(e.target.value)
     }
 
+    //color
+
     handleColor = (data) => {
         this.setState({
             color: data
         });
 
+    }
+
+    //archive
+    handleClose = () => {
+        this.setState({
+            isArchived: true
+        })
     }
 
 
@@ -84,12 +95,15 @@ export class createnote extends Component {
             "title": this.state.title,
             "description": this.state.description,
             "color": this.state.color,
+            "isArchived" : this.state.isArchived,
+            "isDeleted" : this.state.isDeleted,
 
         }
         console.log(addnotesObj);
         obj.addNotes(addnotesObj).then((response) => {
             console.log(response);
             this.setState({ snackbaropen: true, snackbarmsg: "Added Notes Sucessfully" });
+            this.props.displayNote();
         }).catch((error) => {
             console.log(error);
             this.setState({ snackbaropen: true, snackbarmsg: "Adding Notes Failed!" });
@@ -177,7 +191,10 @@ export class createnote extends Component {
                             <div id="icons">
                                 <Icon colorval="create"
                                     val={this.state}
-                                    getcolor={this.handleColor} />
+                                    getcolor={this.handleColor}
+                                    archiveCreate = {this.handleClose}
+                                    deleteCreate = {this.handleClose}
+                                    displayNote = {this.props.displayNote} />
 
                                 {/* <UndoOutlinedIcon style={{ fontSize: "large" }}></UndoOutlinedIcon>
                                 <RedoOutlinedIcon style={{ fontSize: "large" }}></RedoOutlinedIcon> */}
