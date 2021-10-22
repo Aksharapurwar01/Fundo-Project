@@ -56,6 +56,14 @@ class UserServices {
         let response = obj.postMeth(`${baseurl}notes/updateNotes`, data, headerconfig);
         return response;
     }
+    getArchiveNotes(){
+        let response = obj.getMethod(`${baseurl}notes/getArchiveNotesList`, headerconfig);
+        return response;
+    }
+    getTrashNotes(){
+        let response = obj.getMethod(`${baseurl}notes/getTrashNotesList`, headerconfig);
+        return response;
+    }
 }
 
 export default UserServices

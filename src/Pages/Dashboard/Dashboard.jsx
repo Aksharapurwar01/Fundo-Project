@@ -36,9 +36,14 @@ import { Create, PortableWifiOffOutlined, ReorderOutlined } from '@mui/icons-mat
 
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
-
 import Homee from '../../components/home/Home';
+
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -253,8 +258,8 @@ export default function Home() {
                 <ListItemIcon>
                   {index <= 0 ? <LightbulbOutlinedIcon /> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
                     && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
-                      && index <= 3 ? <ArchiveOutlinedIcon /> : <InboxIcon />
-                        && index <= 4 ? <DeleteOutlineOutlinedIcon /> : <InboxIcon />}
+                      && index <= 3 ? <Link to ="/Archive" >      <ArchiveOutlinedIcon />   </Link>          : <InboxIcon />
+                        && index <= 4 ? <Link to ="/Trash" >  <DeleteOutlineOutlinedIcon /> </Link>: <InboxIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>

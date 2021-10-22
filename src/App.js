@@ -7,6 +7,8 @@ import Forgotpassword from './Pages/forgotpassword/forgotpassword';
 
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Dashboardd from './Pages/Dashboard/Dashboard-Fundo';
+import Archive from './Pages/Archive/Archive';
+import Trash from './Pages/Trash/Trash';
 
 import {
   BrowserRouter as Router,
@@ -37,6 +39,12 @@ function App() {
            
            </Route>
            <Route  path="/Dashboardd" component = {Dashboardd}>
+           
+           </Route>
+           <Route  path="/Archive" component = {Archive}>
+           
+           </Route>
+           <Route  path="/Trash" component = {Trash}>
            
            </Route>
         </Switch>
