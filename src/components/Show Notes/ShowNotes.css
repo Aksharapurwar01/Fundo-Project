@@ -19,6 +19,60 @@
     width: 32vh;
 }
 
+/* dialog box */
+.MuiDialog-paperWidthSm {
+    width: 45vw !important;
+    height: 32.9vh !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: 1 !important;
+}
+
+.input1 {
+    width: 50vw;
+    border: none;
+    font-size: 1.5rem;
+    margin: 2% 3% 2%;
+    outline: none;
+}
+
+.input2 {
+    outline: none;
+    position: relative !important;
+    border: none;
+    font-size: 1rem;
+    width: 30vw;
+    color:black !important;
+    text-align: left;
+    margin: 2% 3% 12%;
+}
+
+.head {
+    margin-left: 1rem !important;
+}
+
+.dialog_icon {
+    position: absolute !important;
+    left: -1.5rem;
+    top: 10rem;
+    width: 40vw;
+    z-index: 2 !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.popup {
+    position: absolute !important;
+    z-index: 2 !important;
+}
+
+/* .button1 {
+    margin-left: 4.5rem !important;
+} */
+
+
 
 
 

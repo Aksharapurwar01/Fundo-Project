@@ -52,6 +52,10 @@ class UserServices {
         let response = obj.postMeth(`${baseurl}notes/trashNotes`, data, headerconfig);
         return response;
     }
+    updateNotes(data){
+        let response = obj.postMeth(`${baseurl}notes/updateNotes`, data, headerconfig);
+        return response;
+    }
 }
 
 export default UserServices

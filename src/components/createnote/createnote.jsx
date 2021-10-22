@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import "./createnote.css";
-
-
 import Button from "@mui/material/Button";
 import IconButton from '@mui/material/IconButton';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
@@ -102,8 +100,9 @@ export class createnote extends Component {
         console.log(addnotesObj);
         obj.addNotes(addnotesObj).then((response) => {
             console.log(response);
-            this.setState({ snackbaropen: true, snackbarmsg: "Added Notes Sucessfully" });
+            this.setState({ snackbaropen: true, color:"", title: "", description:"", snackbarmsg: "Added Notes Sucessfully"  }); //set value to default
             this.props.displayNote();
+
         }).catch((error) => {
             console.log(error);
             this.setState({ snackbaropen: true, snackbarmsg: "Adding Notes Failed!" });

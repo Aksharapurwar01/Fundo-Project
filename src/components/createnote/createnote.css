@@ -9,6 +9,7 @@
     width: 100%;
     height: 40%;
     margin-left: 2rem;
+  
    
 
   }
@@ -21,6 +22,7 @@
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 1px 7px rgb(128, 128, 128);
+   
     
   }
  
@@ -71,6 +73,8 @@
       justify-content: space-evenly;
       color: rgba(0, 0, 0, 0.54);
       cursor: pointer;
+      margin-top: 7%;
+    
   }
 
   /* color palette */
@@ -83,6 +87,9 @@
   padding: 8px;
   border: 1px solid lightgray;
   background-color: white;
+ 
+
+ 
 }
 
 .palette_main {

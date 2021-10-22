@@ -23,14 +23,14 @@ export class Home extends Component {
 
                 var newarr = []
                 response.data.data.data.filter((index) => {
-                   
-                   if(index.isArchived != true && index.isDeleted != true) {
-                       newarr.push(index)
-                   }
+
+                    if (index.isArchived != true && index.isDeleted != true) {
+                        newarr.push(index)
+                    }
 
                 })
                 this.setState({
-                    notesarr : newarr
+                    notesarr: newarr  //changing state
                 })
             })
             .catch((error) => {
@@ -38,7 +38,8 @@ export class Home extends Component {
             });
     }
 
-    componentDidMount() {
+    componentDidMount() {    //componentDidMount is used for after the component is rendered correctly, 
+                                //componentDidMount() //function is called and that call getData() function.
         this.displayNote();
     }
 
@@ -47,7 +48,8 @@ export class Home extends Component {
         return (
             <div>
                 <CreateNote displayNote={this.displayNote} />
-                <Notes notesarr = {this.state.notesarr} displayNote={this.displayNote} />
+                {/* createnote main note home is parent of create and notes */}
+                <Notes notesarr={this.state.notesarr} displayNote={this.displayNote} />
 
             </div>
         )

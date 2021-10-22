@@ -119,11 +119,11 @@ export class Icon extends Component {
                     style={{ fontSize: "large" }}
                     onClick={() => {
                         if (this.props.colorval === "update") {
-                            console.log("hello");
+                            console.log("hello small form");
                             this.onArchive()
                         }
                         else {
-                            console.log("hello2");
+                            console.log("hello2 bigger form");
                             this.props.archiveCreate()
                         }
                     }}
