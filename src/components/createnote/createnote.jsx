@@ -31,7 +31,7 @@ export class createnote extends Component {
             snackbarmsg: "",
             color: "",
             isArchived: false,
-            isDeleted : false  //set delete value false initial
+            isDeleted: false  //set delete value false initial
 
 
 
@@ -93,14 +93,14 @@ export class createnote extends Component {
             "title": this.state.title,
             "description": this.state.description,
             "color": this.state.color,
-            "isArchived" : this.state.isArchived,
-            "isDeleted" : this.state.isDeleted,
+            "isArchived": this.state.isArchived,
+            "isDeleted": this.state.isDeleted,
 
         }
         console.log(addnotesObj);
         obj.addNotes(addnotesObj).then((response) => {
             console.log(response);
-            this.setState({ snackbaropen: true, color:"", title: "", description:"", snackbarmsg: "Added Notes Sucessfully"  }); //set value to default
+            this.setState({ snackbaropen: true, color: "", title: "", description: "", snackbarmsg: "Added Notes Sucessfully" }); //set value to default
             this.props.displayNote();
 
         }).catch((error) => {
@@ -161,8 +161,8 @@ export class createnote extends Component {
                     )}
 
                     {this.state.show && (
-                        <form id="note-title-form2" style ={{
-                            backgroundColor : this.state.color
+                        <form id="note-title-form2" style={{
+                            backgroundColor: this.state.color
                         }}>
                             <p>
                                 <input
@@ -177,13 +177,17 @@ export class createnote extends Component {
                                     }
 
                                 />
-                                <input name="description" className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..."
+                                <input type="text" name="description" className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..."
                                     onChange={e => this.change(e)}
                                     style={{
-                                        backgroundColor: this.state.color
-                                    }
-                                    }
+                                        backgroundColor: this.state.color,
 
+                                    }
+                                    }
+                                    id="outlined-multiline-static"
+                                    label="Multiline"
+                                    multiline
+                                    rows="3"
                                 />
 
                             </p>
@@ -191,9 +195,9 @@ export class createnote extends Component {
                                 <Icon colorval="create"
                                     val={this.state}
                                     getcolor={this.handleColor}
-                                    archiveCreate = {this.handleClose}
-                                    deleteCreate = {this.handleClose}
-                                    displayNote = {this.props.displayNote} />
+                                    archiveCreate={this.handleClose}
+                                    deleteCreate={this.handleClose}
+                                    displayNote={this.props.displayNote} />
 
                                 {/* <UndoOutlinedIcon style={{ fontSize: "large" }}></UndoOutlinedIcon>
                                 <RedoOutlinedIcon style={{ fontSize: "large" }}></RedoOutlinedIcon> */}

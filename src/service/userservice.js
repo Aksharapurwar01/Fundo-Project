@@ -64,6 +64,10 @@ class UserServices {
         let response = obj.getMethod(`${baseurl}notes/getTrashNotesList`, headerconfig);
         return response;
     }
+    signOut(data){
+        let response = obj.postMeth(`${baseurl}user/logout`, {}, headerconfig);
+        return response;
+    }
 }
 
 export default UserServices

@@ -62,7 +62,7 @@ const ColorPalette = (props) => {                             //function
   
     return (
         <>
-        <ColorLensOutlinedIcon  onClick={handleClick}/> 
+        <ColorLensOutlinedIcon style={{ fontSize: "large" }}   onClick={handleClick}/> 
             <Popper  open={open} anchorEl={anchorEl} placement={'top-start'} transition>
                 <div className="poppor">{colors.map(colordemo)}</div>
             </Popper>

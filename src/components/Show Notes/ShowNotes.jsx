@@ -15,11 +15,18 @@ export class Notes extends Component {
         this.state = {
             newNote: false,
             open: false,
-            title : '',
+            title : '',     //change this
             description: ''
         }
     }
 
+    // static getDerivedStateFromProps() {
+    //     return {
+    //        title: this.index.title ,
+    //        description : this.index.description
+
+    //     };
+    //   }                                                      //life cycle added get drived state
     newNotes1 = () => {
         this.setState({ newNote: true });
     };
@@ -40,9 +47,13 @@ export class Notes extends Component {
     onUpdate = () => {
         let updateData = {
             noteId: this.props.index.id,
+          
             title: this.state.title,
             description: this.state.description,
         };
+        console.log(this.props.index.id);
+       
+       
         obj.updateNotes(updateData).then((response) => {
             console.log(response);
             console.log("update");
@@ -132,7 +143,7 @@ export class Notes extends Component {
                 }}  >
                     <h4>{this.props.index.title}</h4>
                     <div className="content1" onClick={this.handleClickOpen}>{this.props.index.description}</div>
-                    <div id="icons">
+                    <div id="icons-shownotes">
                         <Icon colorval="update"
                             val={this.props.index}
                             id={this.props.index.id}

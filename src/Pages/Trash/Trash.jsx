@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DisplayNotes from '../../components/displaynotes/notes'
 import UserServices from '../../service/userservice'
 import Dashboard from '../Dashboard/Dashboard'
+import DashboardArchive from '../Dashboard/Dashboard-archive'
 
 const obj = new UserServices();
 
@@ -15,6 +16,7 @@ export class Trash extends Component {
     }
 
     trashNote = () => {
+        console.log("trash");
         obj.getTrashNotes()
         .then((response) => {
             var newarr=[]
@@ -39,8 +41,9 @@ export class Trash extends Component {
         console.log(this.state.notesarr);
         return (
             <div>
-                <Dashboard />
+             
                 <DisplayNotes notesarr = {this.state.notesarr} displayNote={this.trashNote}/>
+                <DashboardArchive />
             </div>
         )
     }

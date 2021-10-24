@@ -16,8 +16,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InputBase from '@mui/material/InputBase';
-
-import Button from "@mui/material/Button";
 import RefreshIcon from '@mui/icons-material/Refresh';
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -27,21 +25,13 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import SearchIcon from '@mui/icons-material/Search';
-
 import AppsIcon from '@mui/icons-material/Apps';
-import CheckBoxOutlined from '@mui/icons-material/CheckBoxOutlined';
-import BrushOutlined from '@mui/icons-material/BrushOutlined';
-import InsertPhotoOutlined from '@mui/icons-material/InsertPhotoOutlined'
-import { Create, PortableWifiOffOutlined, ReorderOutlined } from '@mui/icons-material';
-
+import { ReorderOutlined } from '@mui/icons-material';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Homee from '../../components/home/Home';
+import SignOutPop from '../../components/Signout/Signout';
 
 import {
-  BrowserRouter,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 
@@ -190,7 +180,7 @@ export default function Home() {
             <Typography variant="h6" noWrap component="div">
               Fundoo Notes
             </Typography>
-            <Search>
+            <Search  >
               <SearchIconWrapper className='search'>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -206,7 +196,7 @@ export default function Home() {
                 aria-label="open drawer"
                 edge="start"
 
-                sx={{ ml: 20, display: { sm: 'block' } }}
+                sx={{ ml: 30, display: { sm: 'block' } }}
               >
                 <RefreshIcon />
               </IconButton>
@@ -232,7 +222,8 @@ export default function Home() {
                 size="large"
                 edge="end"
                 color="inherit"
-                className="apps"
+                sx={{ ml: 4, display: { sm: 'block' } }}
+
               >
                 <AppsIcon />
               </IconButton>
@@ -240,10 +231,10 @@ export default function Home() {
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
-               
-                sx={{ ml: 2, display: { sm: 'block' } }}
+
+                sx={{ ml: 2, mr: -7, display: { sm: 'block' } }}
               >
-                <AccountCircleIcon />
+                <SignOutPop />
               </IconButton>
             </Box>
           </Toolbar>
@@ -258,8 +249,8 @@ export default function Home() {
                 <ListItemIcon>
                   {index <= 0 ? <LightbulbOutlinedIcon /> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
                     && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
-                      && index <= 3 ? <Link to ="/Archive" >      <ArchiveOutlinedIcon />   </Link>          : <InboxIcon />
-                        && index <= 4 ? <Link to ="/Trash" >  <DeleteOutlineOutlinedIcon /> </Link>: <InboxIcon />}
+                      && index <= 3 ? <Link to="/Archive" >      <ArchiveOutlinedIcon />   </Link> : <InboxIcon />
+                        && index <= 4 ? <Link to="/Trash" >  <DeleteOutlineOutlinedIcon /> </Link> : <InboxIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
@@ -268,10 +259,10 @@ export default function Home() {
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
-         <Homee/>
+          <Homee />
         </Box>
       </Box>
-      
+
 
     </div>
   );
