@@ -6,6 +6,9 @@ import Popper from '@material-ui/core/Popper';
 import Avatar from '@material-ui/core/Avatar';
 import { useHistory } from "react-router-dom";
 import Box from '@mui/material/Box';
+import Button from '@material-ui/core/Button';
+
+
 
 const obj = new UserServices();
 
@@ -33,12 +36,22 @@ export default function UserSignout() {
 
     return (
         <div>
-            <Avatar alt=""
+            {/* <Avatar alt=""
                 src={pic}
-                type="button" onClick={handleClick} />
+                type="button" onClick={handleClick} /> */}
             <Popper id={id} open={open} anchorEl={anchorEl} placement={'bottom'}>
-                <Box sx={{ border: 1, p: 5, bgcolor: 'background.paper' }}>
-                    The content of the Popper.
+                <Box sx={{ border: 1, p: 5, bgcolor: 'background.paper', borderColor: '#cdcbcd' }}>
+                    <div className="profile">
+                        <div className="profile_content">
+                            <img className="profile_pic" src={pic} alt="" />
+                        </div>
+                        <div className="profile_content">{localStorage.getItem('email')}</div>
+                         {/* <Button variant="text" size ="small" onClick ={signOut}>Sign Out</Button>  */}
+                          
+                        
+
+
+                    </div>
                 </Box>
             </Popper>
         </div>

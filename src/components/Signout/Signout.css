@@ -1,5 +1,37 @@
 .MuiAvatar-root {
     width: 2.7vw !important;
     height: 5vh !important;
-   
+
+}
+
+.css-1ayoe60 {
+    border: 1 px solid #cdcbcd !important;
+    background-color: #fff;
+    box-shadow: 2px !important;
+    
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.profile-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    margin-top: 1rem;
+}
+
+.profile_pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-bottom: 15px;
 }

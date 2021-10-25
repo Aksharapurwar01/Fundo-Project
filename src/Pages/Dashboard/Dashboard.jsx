@@ -30,11 +30,20 @@ import { ReorderOutlined } from '@mui/icons-material';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Homee from '../../components/home/Home';
 import SignOutPop from '../../components/Signout/Signout';
+import Avatar from '@material-ui/core/Avatar';
+import pic from "../../components/Signout/dp.jpg"
+import Popper from '@material-ui/core/Popper';
+import Button from '@material-ui/core/Button';
 
 import {
-  Link
+  Link, Switch, Route
 } from "react-router-dom";
+import Archive from '../Archive/Archive';
+import Trash from '../Trash/Trash';
+import { useHistory } from "react-router-dom";
+import UserServices from '../../service/userservice';
 
+const obj = new UserServices();
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -141,6 +150,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+//avatar
+
+//avatar
 
 export default function Home() {
 
@@ -161,6 +173,30 @@ export default function Home() {
   const normal = () => {
     setShow(false);
   };
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const history = useHistory();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const signOut = () => {
+    localStorage.clear();
+    obj.signOut().then((response) => {
+      console.log(response);
+      history.push("/");
+    }).catch(error => {
+      console.log(error);
+    });
+    history.push("/");
+  }
+
+
+  const openn = Boolean(anchorEl);
+  const id = openn ? 'simple-popper' : undefined;
+
+
 
   return (
     <div className="dash">
@@ -234,7 +270,20 @@ export default function Home() {
 
                 sx={{ ml: 2, mr: -7, display: { sm: 'block' } }}
               >
-                <SignOutPop />
+                <Avatar alt=""
+                  src={pic}
+                  type="button" onClick={handleClick} />
+                <Popper id={id} open={openn} anchorEl={anchorEl} placement={'bottom'}>
+                  <Box sx={{ border: 1, p: 5, bgcolor: 'background.paper', borderColor: '#cdcbcd' }}>
+                    <div className="profile">
+                      <div className="profile_content">
+                        <img className="profile_pic" src={pic} alt="" />
+                      </div>
+                      <div className="profile_content">{localStorage.getItem('email')}</div>
+                       <Button variant="text" size ="small" onClick ={signOut}>Sign Out</Button>  
+                    </div>
+                  </Box>
+                </Popper>
               </IconButton>
             </Box>
           </Toolbar>
@@ -247,10 +296,10 @@ export default function Home() {
             {['Notes', 'Reminders', 'Edit Labels', 'Archive', 'Bin'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  {index <= 0 ? <LightbulbOutlinedIcon /> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
+                  {index <= 0 ? <Link to="/Dashboard" >  <LightbulbOutlinedIcon /> </Link> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
                     && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
-                      && index <= 3 ? <Link to="/Archive" >      <ArchiveOutlinedIcon />   </Link> : <InboxIcon />
-                        && index <= 4 ? <Link to="/Trash" >  <DeleteOutlineOutlinedIcon /> </Link> : <InboxIcon />}
+                      && index <= 3 ? <Link to="/Dashboard/Archive" >      <ArchiveOutlinedIcon />   </Link> : <InboxIcon />
+                        && index <= 4 ? <Link to="/Dashboard/Trash" >  <DeleteOutlineOutlinedIcon /> </Link> : <InboxIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
@@ -259,7 +308,19 @@ export default function Home() {
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
-          <Homee />
+          <Switch>
+            <Route exact path="/Dashboard" component={Homee}>
+
+            </Route>
+            <Route exact path="/Dashboard/Archive" component={Archive}>
+
+            </Route>
+            <Route exact path="/Dashboard/Trash" component={Trash}>
+
+            </Route>
+
+          </Switch>
+          {/* <Homee /> */}
         </Box>
       </Box>
 

@@ -9,6 +9,7 @@ import { Snackbar } from '@mui/material';
 import UserServices from '../../service/userservice';
 import 'material-design-inspired-color-picker';
 import Icon from '../Icon/Icon';
+import { TextareaAutosize } from '@material-ui/core';
 
 
 
@@ -177,17 +178,15 @@ export class createnote extends Component {
                                     }
 
                                 />
-                                <input type="text" name="description" className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..."
+                                <TextareaAutosize type="text" name="description" className="form-input-2" aria-label="empty textarea" placeholder="Take a Note..."
                                     onChange={e => this.change(e)}
                                     style={{
                                         backgroundColor: this.state.color,
 
                                     }
                                     }
-                                    id="outlined-multiline-static"
-                                    label="Multiline"
-                                    multiline
-                                    rows="3"
+                                    aria-multiline
+                                   
                                 />
 
                             </p>

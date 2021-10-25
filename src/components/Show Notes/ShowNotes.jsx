@@ -20,10 +20,10 @@ export class Notes extends Component {
         }
     }
 
-    // static getDerivedStateFromProps() {
+    // static getDerivedStateFromProps(props) {
     //     return {
-    //        title: this.index.title ,
-    //        description : this.index.description
+    //        title: props.index.title ,
+    //        description : props.index.description
 
     //     };
     //   }                                                      //life cycle added get drived state
@@ -113,20 +113,21 @@ export class Notes extends Component {
                             </p>
                             <div className="dialog_icon">
                                 <Icon
-                                    archive={() => {
-                                        this.props.onArchive();
-                                        this.setState({ open: false });
-                                    }}
-                                    delete={() => {
-                                        this.props.onDelete();
-                                        this.setState({ open: false });
-                                    }}
+                                    // archive={() => {
+                                    //     this.props.onArchive();
+                                    //     this.setState({ open: false });
+                                    // }}
+                                    // delete={() => {
+                                    //     this.props.onDelete();
+                                    //     this.setState({ open: false });
+                                    // }}
                                     colorval="update"
                                     val={this.props.index}
                                     id={this.props.index.id}
                                     getColor={this.handleColor}
                                     displayNote={this.props.displayNote}
                                     archiveNotes="archiveUpdate"
+                                    handleClose = {this.handleClose}
                                 />
                                 <Button className="button" onClick={this.onUpdate}>Close</Button>
                             </div>

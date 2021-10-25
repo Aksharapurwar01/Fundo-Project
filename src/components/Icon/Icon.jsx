@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AddAlertOutlinedIcon from "@mui/icons-material/AddAlertOutlined";
-import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
+
 import UserServices from '../../service/userservice';
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
@@ -8,6 +8,7 @@ import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import ColorPalette from './ColorPalette';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import PersonAddOutlinedIcon from './collaborator';
 
 const obj = new UserServices();
 
@@ -67,6 +68,7 @@ export class Icon extends Component {
         obj.archiveNotes(archive).then((response) => {
             console.log(response);
             this.props.displayNote();  //home displaynote ,notes arr
+            this.props.handleClose();
         }).catch(error => {
             console.log(error);
         })
@@ -86,6 +88,7 @@ export class Icon extends Component {
             console.log(response);
             console.log("display notes in bottom is deleted");
             this.props.displayNote();
+            this.props.handleClose();
         }).catch(error => {
             console.log(error);
         })
@@ -103,8 +106,8 @@ export class Icon extends Component {
                     style={{ fontSize: "large" }}
                 ></AddAlertOutlinedIcon>
                 <PersonAddOutlinedIcon
-                    style={{ fontSize: "large" }}
-                ></PersonAddOutlinedIcon>
+                  
+                />
 
 
                 <ColorPalette

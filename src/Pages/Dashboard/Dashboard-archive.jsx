@@ -32,7 +32,7 @@ import Homee from '../../components/home/Home';
 import SignOutPop from '../../components/Signout/Signout';
 
 import {
-  Link
+  Link,Switch
 } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -247,7 +247,7 @@ export default function Home() {
             {['Notes', 'Reminders', 'Edit Labels', 'Archive', 'Bin'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  {index <= 0 ? <LightbulbOutlinedIcon /> : <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
+                  {index <= 0 ?  <Link to="/Dashboard" > <LightbulbOutlinedIcon /> </Link>: <InboxIcon /> && index <= 1 ? <NotificationsNoneIcon /> : <InboxIcon />
                     && index <= 2 ? <ModeEditOutlineOutlinedIcon /> : <InboxIcon />
                       && index <= 3 ? <Link to="/Archive" >      <ArchiveOutlinedIcon />   </Link> : <InboxIcon />
                         && index <= 4 ? <Link to="/Trash" >  <DeleteOutlineOutlinedIcon /> </Link> : <InboxIcon />}
