@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AddAlertOutlinedIcon from "@mui/icons-material/AddAlertOutlined";
-
+import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
 import UserServices from '../../service/userservice';
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
@@ -8,7 +8,9 @@ import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import ColorPalette from './ColorPalette';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import PersonAddOutlinedIcon from './collaborator';
+import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
+import Person from './collaborator';
+
 
 const obj = new UserServices();
 
@@ -20,6 +22,7 @@ export class Icon extends Component {
 
         this.state = {
             anchorE1: null,
+            openStatus: false,
         }
     }
 
@@ -38,6 +41,13 @@ export class Icon extends Component {
             anchorE1: null,
         })
     }
+
+    dialogopen = () => {
+        this.setState({
+            openStatus: true
+        });
+    }
+
 
     //color
     onSetColor = (color) => {
@@ -96,7 +106,11 @@ export class Icon extends Component {
     }
 
 
-
+    onSetStatus = (val) => {
+        this.setState({
+            openStatus: val
+        });
+    }
 
 
     render() {
@@ -105,10 +119,11 @@ export class Icon extends Component {
                 <AddAlertOutlinedIcon
                     style={{ fontSize: "large" }}
                 ></AddAlertOutlinedIcon>
-                <PersonAddOutlinedIcon
-                  
-                />
 
+                <Person getCloseStatus={(Data) => {
+                    this.onSetStatus(Data);
+                }} 
+                getNotes={this.props.getNotes} />
 
                 <ColorPalette
                     putColor={(Data) => {
@@ -142,18 +157,18 @@ export class Icon extends Component {
                     onClose={this.handleClose}
                     style={{ fontSize: "small" }}
 
-                >    
-                <MenuItem onClick={() => {
-                    if (this.props.colorval === "update") {
-                        console.log("delet");
-                        this.onDelete()
-                        this.handleClose()
+                >
+                    <MenuItem onClick={() => {
+                        if (this.props.colorval === "update") {
+                            console.log("delet");
+                            this.onDelete()
+                            this.handleClose()
+                        }
+                        else {
+                            this.props.deleteCreate()
+                        }
                     }
-                    else {
-                        this.props.deleteCreate()
-                    }
-                }
-                }>Delete Note</MenuItem>
+                    }>Delete Note</MenuItem>
                     <MenuItem >Add Label</MenuItem>
                     <MenuItem >Add Drawing</MenuItem>
                     <MenuItem >Make a Copy</MenuItem>

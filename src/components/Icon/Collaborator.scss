@@ -1,0 +1,81 @@
+$display: flex;
+$size: small;
+
+
+$border-bottom:1px solid black !important;
+
+@mixin input($size) {
+    font-size: $size;
+    margin-left: 20px;
+}
+
+
+.MuiDialog-paper {
+
+    overflow-y: hidden !important;
+    min-height: 300px !important;
+}
+
+.css-1t4vnk2-MuiDialogContent-root {
+    overflow-y: scroll !important;
+    min-height: fit-content !important;
+}
+.css-16sc5ra-MuiStack-root{
+    margin-top: 0% !important;
+}
+
+
+
+
+
+
+.intro {
+
+    display: $display;
+
+
+}
+
+.name-txt {
+    @include input(medium);
+}
+
+.email-txt {
+    @include input(small);
+    margin-top: -1rem;
+    color: gray;
+    margin-left: 3.5rem;
+}
+
+.MuiDialog-paperScrollPaper {
+    min-height: 300px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.MuiList-padding {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+
+.MuiPaper-elevation1 {
+    width: 90% !important;
+
+}
+
+
+.menulist>.MuiMenuItem-root {
+    border-bottom: $border-bottom;
+}
+
+
+
+.css-e53awj-MuiStack-root {
+    z-index: 1000;
+    
+    margin-left: 5.8rem;
+    position: fixed;
+    width: 30% !important;
+}

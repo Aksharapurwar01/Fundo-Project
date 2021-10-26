@@ -280,7 +280,11 @@ export default function Home() {
                         <img className="profile_pic" src={pic} alt="" />
                       </div>
                       <div className="profile_content">{localStorage.getItem('email')}</div>
-                       <Button variant="text" size ="small" onClick ={signOut}>Sign Out</Button>  
+                      <div class="signout-button">
+                      <Typography variant="button" display="block" gutterBottom onClick={signOut}>
+                         Sign out
+                        </Typography>
+                      </div>
                     </div>
                   </Box>
                 </Popper>

@@ -55,7 +55,7 @@
 .dialog_icon {
     position: absolute !important;
     left: -1.5rem;
-    top: 10rem;
+    margin-top: 2%;
     width: 40vw;
     z-index: 2 !important;
     cursor: pointer;
@@ -66,6 +66,7 @@
 .popup {
     position: absolute !important;
     z-index: 2 !important;
+    height: 300px;
 }
 
 /* .button1 {
@@ -81,7 +82,7 @@
     justify-content: space-evenly;
     color: rgba(0, 0, 0, 0.54);
     cursor: pointer;
-    margin-top: 7%;
+    margin-top: 10%;
 
 }
 

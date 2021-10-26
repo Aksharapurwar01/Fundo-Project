@@ -10,7 +10,7 @@ import UserServices from '../../service/userservice';
 import 'material-design-inspired-color-picker';
 import Icon from '../Icon/Icon';
 import { TextareaAutosize } from '@material-ui/core';
-
+import Avatar from '@material-ui/core/Avatar';
 
 
 
@@ -32,7 +32,8 @@ export class createnote extends Component {
             snackbarmsg: "",
             color: "",
             isArchived: false,
-            isDeleted: false  //set delete value false initial
+            isDeleted: false,
+            collabDetails: [],     
 
 
 
@@ -77,6 +78,14 @@ export class createnote extends Component {
             isArchived: true
         })
     }
+
+    getNotes = (val) => {
+        this.setState({
+            collabDetails: val
+        })
+        console.log(val);
+    }
+
 
 
 
@@ -125,7 +134,17 @@ export class createnote extends Component {
     };
 
     render() {
+        const userDetails = this.state.collabDetails.map((val, index) => {
+            const chars = val.firstName.split('');
+            return (
+                <div className="avatar_img1">
+                    <Avatar alt={chars[0]} src={chars[0]} />
+                </div>
+            );
+        });
+
         return (
+            
             <div>
                 <Snackbar
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -186,8 +205,11 @@ export class createnote extends Component {
                                     }
                                     }
                                     aria-multiline
-                                   
+
                                 />
+                                <div className="av_main">
+                                    {userDetails}
+                                </div>
 
                             </p>
                             <div id="icons">
@@ -196,7 +218,8 @@ export class createnote extends Component {
                                     getcolor={this.handleColor}
                                     archiveCreate={this.handleClose}
                                     deleteCreate={this.handleClose}
-                                    displayNote={this.props.displayNote} />
+                                    displayNote={this.props.displayNote}
+                                    getNotes = {this.getNotes} />
 
                                 {/* <UndoOutlinedIcon style={{ fontSize: "large" }}></UndoOutlinedIcon>
                                 <RedoOutlinedIcon style={{ fontSize: "large" }}></RedoOutlinedIcon> */}

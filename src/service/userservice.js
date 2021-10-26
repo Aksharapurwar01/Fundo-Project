@@ -68,6 +68,20 @@ class UserServices {
         let response = obj.postMeth(`${baseurl}user/logout`, {}, headerconfig);
         return response;
     }
+    searchCollaborator(data) 
+    {
+        let response = obj.postMeth(`${baseurl}user/searchUserList`,data, headerconfig);
+        return response;
+    }
+
+    addCollab(data,noteId) 
+    {
+
+        let response = obj.postMeth(`${baseurl}notes/` +noteId+ `/AddcollaboratorsNotes`,data ,headerconfig);
+        return response;
+        
+        
+    }
 }
 
 export default UserServices

@@ -3,10 +3,8 @@ import './Signout.css';
 import pic from "./dp.jpg"
 import UserServices from '../../service/userservice';
 import Popper from '@material-ui/core/Popper';
-import Avatar from '@material-ui/core/Avatar';
 import { useHistory } from "react-router-dom";
 import Box from '@mui/material/Box';
-import Button from '@material-ui/core/Button';
 
 
 

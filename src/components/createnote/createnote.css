@@ -150,3 +150,11 @@
   
 }
  
+.av_main {
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar_img1 {
+  margin-left: -1rem;
+}
